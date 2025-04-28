@@ -91,7 +91,8 @@ class Subnetting:
                 binario = ''.join(map(str, ip_lista[i]))  # trasforma la lista di numeri in un'unica stringa  [1, 0, 1] = "101"
                 decimale = int(binario, 2)  # Convertiamo la stringa binaria in decimale
                 net.append(decimale)
-            if net[0] == 0 or net[0] == 127: #indirizzi speciali
+            address = f"{net[0]}.{net[1]}.{net[2]}.{net[3]}"
+            if net[0] == 0 or net[0] == 127 or address == "255.255.255.255": #indirizzi speciali (casi più comuni)
                 regenerate_rand_net()
             return net
         net = regenerate_rand_net()
